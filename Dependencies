@@ -1,0 +1,147 @@
+SUPABASE_URL=https://aaazpnggcrgcacochgyw.supabase.co
+SUPABASE_PUBLISHABLE_KEY=sb_publishable__kM3zgcfd3YndStdyA6YYQ_tWZh03Mt
+SUPABASE_SECRET_KEY=sb_secret_xdNtGbVLnqHDudhiGdL1hw_9Ee8Bws9
+SUPABASE_JWKS_URL=https://aaazpnggcrgcacochgyw.supabase.co/auth/v1/.well-known/jwks.jsonl
+import React, { useState } from 'react';
+import {
+  View, Text, TextInput, TouchableOpacity,
+  StyleSheet, ScrollView, Alert
+} from 'react-native';
+
+export default function App() {
+  const [isSignup, setIsSignup] = useState(true);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = () => {
+    if (!email.trim() || !password.trim()) {
+      Alert.alert('Missing details', 'Please enter your email and password.');
+      return;
+    }
+
+    if (isSignup && !username.trim()) {
+      Alert.alert('Missing username', 'Please choose a username.');
+      return;
+    }
+
+    Alert.alert(
+      'InstaMini',
+      'Your screen is ready! Next we will connect real account registration and login.'
+    );
+  };
+
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.logo}>InstaMini 📸</Text>
+      <Text style={styles.subtitle}>
+        Share your moments with the world.
+      </Text>
+
+      <Text style={styles.heading}>
+        {isSignup ? 'Create Account' : 'Welcome Back'}
+      </Text>
+
+      {isSignup && (
+        <TextInput
+          style={styles.input}
+          placeholder="Choose a username"
+          value={username}
+          onChangeText={setUsername}
+          autoCapitalize="none"
+        />
+      )}
+
+      <TextInput
+        style={styles.input}
+        placeholder="Email address"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
+      />
+
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.buttonText}>
+          {isSignup ? 'Sign Up' : 'Log In'}
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => setIsSignup(!isSignup)}>
+        <Text style={styles.switch}>
+          {isSignup
+            ? 'Already have an account? Log In'
+            : "Don't have an account? Sign Up"}
+        </Text>
+      </TouchableOpacity>
+
+      <Text style={styles.footer}>Made with ❤️ by InstaMini</Text>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    padding: 25,
+  },
+  logo: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
+  subtitle: {
+    textAlign: 'center',
+    color: '#777',
+    marginBottom: 45,
+  },
+  heading: {
+    fontSize: 27,
+    fontWeight: 'bold',
+    marginBottom: 25,
+    textAlign: 'center',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    backgroundColor: '#fafafa',
+    borderRadius: 10,
+    padding: 16,
+    marginBottom: 15,
+    fontSize: 16,
+  },
+  button: {
+    backgroundColor: '#a020f0',
+    padding: 17,
+    borderRadius: 10,
+    marginTop: 10,
+  },
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  switch: {
+    color: '#a020f0',
+    textAlign: 'center',
+    marginTop: 25,
+    fontWeight: 'bold',
+  },
+  footer: {
+    textAlign: 'center',
+    color: '#999',
+    marginTop: 60,
+  },https://aaazpnggcrgcacochgyw.supabase.co/rest/v1/
+});sb_publishable__kM3zgcfd3YndStdyA6YYQ_tWZh03Mt
