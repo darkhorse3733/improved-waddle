@@ -1,4 +1,7 @@
-
+SUPABASE_URL=https://aaazpnggcrgcacochgyw.supabase.co
+SUPABASE_PUBLISHABLE_KEY=sb_publishable__kM3zgcfd3YndStdyA6YYQ_tWZh03Mt
+SUPABASE_SECRET_KEY=sb_secret_xdNtGbVLnqHDudhiGdL1hw_9Ee8Bws9
+SUPABASE_JWKS_URL=https://aaazpnggcrgcacochgyw.supabase.co/auth/v1/.well-known/jwks.jsonl
 import React, { useState } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity,
